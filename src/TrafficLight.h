@@ -19,7 +19,7 @@ template <class T>
 class MessageQueue
 {
 public:
-    MessageQueue();
+    // MessageQueue();
     T receive();
     void send(T &&msg);
 private:
