@@ -1,0 +1,37 @@
+[
+{
+  "directory": "/home/jason-nhk/Udacity/Concurrent-Traffic-Simulation/build",
+  "command": "/usr/bin/g++-7   -isystem /home/jason-nhk/anaconda3/include/opencv4  -std=c++17 -pthread -g   -o CMakeFiles/traffic_simulation.dir/src/Graphics.cpp.o -c /home/jason-nhk/Udacity/Concurrent-Traffic-Simulation/src/Graphics.cpp",
+  "file": "/home/jason-nhk/Udacity/Concurrent-Traffic-Simulation/src/Graphics.cpp"
+},
+{
+  "directory": "/home/jason-nhk/Udacity/Concurrent-Traffic-Simulation/build",
+  "command": "/usr/bin/g++-7   -isystem /home/jason-nhk/anaconda3/include/opencv4  -std=c++17 -pthread -g   -o CMakeFiles/traffic_simulation.dir/src/Intersection.cpp.o -c /home/jason-nhk/Udacity/Concurrent-Traffic-Simulation/src/Intersection.cpp",
+  "file": "/home/jason-nhk/Udacity/Concurrent-Traffic-Simulation/src/Intersection.cpp"
+},
+{
+  "directory": "/home/jason-nhk/Udacity/Concurrent-Traffic-Simulation/build",
+  "command": "/usr/bin/g++-7   -isystem /home/jason-nhk/anaconda3/include/opencv4  -std=c++17 -pthread -g   -o CMakeFiles/traffic_simulation.dir/src/Street.cpp.o -c /home/jason-nhk/Udacity/Concurrent-Traffic-Simulation/src/Street.cpp",
+  "file": "/home/jason-nhk/Udacity/Concurrent-Traffic-Simulation/src/Street.cpp"
+},
+{
+  "directory": "/home/jason-nhk/Udacity/Concurrent-Traffic-Simulation/build",
+  "command": "/usr/bin/g++-7   -isystem /home/jason-nhk/anaconda3/include/opencv4  -std=c++17 -pthread -g   -o CMakeFiles/traffic_simulation.dir/src/TrafficLight.cpp.o -c /home/jason-nhk/Udacity/Concurrent-Traffic-Simulation/src/TrafficLight.cpp",
+  "file": "/home/jason-nhk/Udacity/Concurrent-Traffic-Simulation/src/TrafficLight.cpp"
+},
+{
+  "directory": "/home/jason-nhk/Udacity/Concurrent-Traffic-Simulation/build",
+  "command": "/usr/bin/g++-7   -isystem /home/jason-nhk/anaconda3/include/opencv4  -std=c++17 -pthread -g   -o CMakeFiles/traffic_simulation.dir/src/TrafficObject.cpp.o -c /home/jason-nhk/Udacity/Concurrent-Traffic-Simulation/src/TrafficObject.cpp",
+  "file": "/home/jason-nhk/Udacity/Concurrent-Traffic-Simulation/src/TrafficObject.cpp"
+},
+{
+  "directory": "/home/jason-nhk/Udacity/Concurrent-Traffic-Simulation/build",
+  "command": "/usr/bin/g++-7   -isystem /home/jason-nhk/anaconda3/include/opencv4  -std=c++17 -pthread -g   -o CMakeFiles/traffic_simulation.dir/src/TrafficSimulator-Final.cpp.o -c /home/jason-nhk/Udacity/Concurrent-Traffic-Simulation/src/TrafficSimulator-Final.cpp",
+  "file": "/home/jason-nhk/Udacity/Concurrent-Traffic-Simulation/src/TrafficSimulator-Final.cpp"
+},
+{
+  "directory": "/home/jason-nhk/Udacity/Concurrent-Traffic-Simulation/build",
+  "command": "/usr/bin/g++-7   -isystem /home/jason-nhk/anaconda3/include/opencv4  -std=c++17 -pthread -g   -o CMakeFiles/traffic_simulation.dir/src/Vehicle.cpp.o -c /home/jason-nhk/Udacity/Concurrent-Traffic-Simulation/src/Vehicle.cpp",
+  "file": "/home/jason-nhk/Udacity/Concurrent-Traffic-Simulation/src/Vehicle.cpp"
+}
+]
