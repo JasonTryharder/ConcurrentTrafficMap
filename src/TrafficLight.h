@@ -8,7 +8,7 @@
 
 // forward declarations to avoid include cycle
 class Vehicle;
-
+// class TrafficLight;
 
 // FP.3 Define a class „MessageQueue“ which has the public methods send and receive. 
 // Send should take an rvalue reference of type TrafficLightPhase whereas receive should return this type. 
@@ -19,7 +19,7 @@ template <class T>
 class MessageQueue
 {
 public:
-    // MessageQueue();
+    // MessageQueue<T>();
     T receive();
     void send(T &&msg);
 private:
@@ -33,26 +33,24 @@ private:
 // as well as „TrafficLightPhase getCurrentPhase()“, where TrafficLightPhase is an enum that 
 // can be either „red“ or „green“. Also, add the private method „void cycleThroughPhases()“. 
 // Furthermore, there shall be the private member _currentPhase which can take „red“ or „green“ as its value. 
-
-class TrafficLight: public TrafficObject
-{
-public:
-    // constructor / desctructor
-    TrafficLight();
-    void waitForGreen();
-    void simulate();
-    
-    enum TrafficLightPhase 
+enum TrafficLightPhase 
     {
         red,
         green
     };
+class TrafficLight: public TrafficObject, public std::enable_shared_from_this<TrafficLight> //It enables you to get a valid shared_ptr instance to this, when all you have is this. Without it, you would have no way of getting a shared_ptr to this, unless you already had one as a member
+{
+public:
+    // constructor / desctructor
+    TrafficLight();
 
-    TrafficLightPhase getCurrentPhase();
-
+    
     // getters / setters
-
+    TrafficLightPhase getCurrentPhase();
     // typical behaviour methods
+    void waitForGreen();
+    void simulate();
+    
 
 private:
     // typical behaviour methods
@@ -61,7 +59,8 @@ private:
     // FP.4b : create a private member of type MessageQueue for messages of type TrafficLightPhase 
     // and use it within the infinite loop to push each new TrafficLightPhase into it by calling 
     // send in conjunction with move semantics.
-    std::shared_ptr<MessageQueue<TrafficLight::TrafficLightPhase>> _msg;
+    // std::shared_ptr<MessageQueue<TrafficLightPhase>> _msg;
+    MessageQueue<TrafficLightPhase> _msg;
     std::condition_variable _condition;
     std::mutex _mutex;
 };
