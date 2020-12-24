@@ -1,8 +1,5 @@
 #include <iostream>
 #include <random>
-#include <chrono>
-#include <stdlib.h>
-#include <deque>
 #include "TrafficLight.h"
 
 /* Implementation of class "MessageQueue" */
@@ -17,9 +14,9 @@ T MessageQueue<T>::receive()
     std::unique_lock<std::mutex>uLock(_mutex); // perform queue modification under the lock 
     _cond.wait(uLock, [this] {return !_queue.empty(); }); 
     // remove last element from the queue
-    T msg = std::move(_queue.back());
+    T msg = std::move(_queue.front());
     std::cout<<"queue length:"<<_queue.size()<<std::endl;
-    _queue.pop_back();
+    _queue.pop_front();
     // _queue.clear();
     return std::move(msg);
 }
@@ -51,9 +48,12 @@ void TrafficLight::waitForGreen()
     // Once it receives TrafficLightPhase::green, the method returns. (returns what???)
     while(true)
     {
-        std::cout<<" WaitforFreen ->" << _msg.receive() << "  \n";
+        // std::cout<<" WaitforFreen ->" << _msg.receive() << "  \n"; // if uncomment this then _msg.receive will request again in next line and you will never get signal 
         TrafficLightPhase phase = _msg.receive();
-        if (phase  == TrafficLightPhase::green) return;
+        if (phase  == TrafficLightPhase::green) 
+        {std::cout<<"";
+        std::cout << " traffic light #"<<this->getID()<<" just turned green." << std::endl;
+        return;}
     }
 }
 
@@ -89,9 +89,9 @@ void TrafficLight::cycleThroughPhases()
     {
         std::this_thread::sleep_for(std::chrono::milliseconds(1));
         long timeSinceLastUpdate = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now() - lastUpdate).count();
-        if (timeSinceLastUpdate >= cycleDuration)
+        if (timeSinceLastUpdate > cycleDuration)
         {
-            TrafficLightPhase cyclePhase = (_currentPhase==red)? green:red; // toggle b/t red and green, notice create a seperate trafficLightPhase to store, in order to not modify "this->_currentPhase" 
+            TrafficLightPhase cyclePhase = (_currentPhase==red? green:red); // toggle b/t red and green, notice create a seperate trafficLightPhase to store, in order to not modify "this->_currentPhase" 
             _currentPhase = (_currentPhase==red)? green:red; // toggle b/t red and green 
 //??? why here give value to _current phase again????????
             _currentPhase = cyclePhase;

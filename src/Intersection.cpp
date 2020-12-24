@@ -92,6 +92,7 @@ void Intersection::addVehicleToQueue(std::shared_ptr<Vehicle> vehicle)
         std::cout << "Intersection #" << _id << ": Vehicle #" << vehicle->getID() << " traffic light #"<<_trafficLight.getID()<<" waiting to turn green." << std::endl;
         // use future to block the execution of this thread until waitForGreen return
         std::future<void> ftrWaitForGreen = std::async(&TrafficLight::waitForGreen, &_trafficLight);
+        // std::future<void> ftrWaitForGreen = std::async(&_trafficLight.waitForGreen(), &_trafficLight);
         ftrWaitForGreen.wait();
         std::cout << "Intersection #" << _id << ": Vehicle #" << vehicle->getID() << " traffic light #"<<_trafficLight.getID()<<" is green. Go!" << std::endl;
     }
