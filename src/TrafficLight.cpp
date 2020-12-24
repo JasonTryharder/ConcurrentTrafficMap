@@ -51,8 +51,7 @@ void TrafficLight::waitForGreen()
         // std::cout<<" WaitforFreen ->" << _msg.receive() << "  \n"; // if uncomment this then _msg.receive will request again in next line and you will never get signal 
         TrafficLightPhase phase = _msg.receive();
         if (phase  == TrafficLightPhase::green) 
-        {std::cout<<"";
-        std::cout << " traffic light #"<<this->getID()<<" just turned green." << std::endl;
+        {std::cout << " traffic light #"<<this->getID()<<" just turned green." << std::endl;
         return;}
     }
 }
